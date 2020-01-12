@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 public class Program
@@ -18,7 +19,8 @@ public class Program
 
             for (int j = 0; j <= dirList.Count()-1; j++)
             {
-                dirList[j] = dirArray[randomizer.Next(0, 3)];
+                dirList[j] = dirArray[randomizer.Next(0, 4)];
+                Thread.Sleep(250);
             }
 
             Console.WriteLine(string.Join(",", dirList));
@@ -38,38 +40,38 @@ public class DirReduction
 
         for (int i = dirInstructions.Count - 1; i > 0; i--)
         {
-            switch (arr[i])
+            switch (dirInstructions[i])
             {
                 case "NORTH":
-                    if (arr[i - 1] == "SOUTH")
+                    if (dirInstructions[i - 1] == "SOUTH")
                     {
                         dirInstructions.RemoveAt(i);
                         dirInstructions.RemoveAt(i - 1);
-                        i = dirInstructions.Count - 1;
+                        i = dirInstructions.Count;
                     }
                     break;
                 case "SOUTH":
-                    if (arr[i - 1] == "NORTH")
+                    if (dirInstructions[i - 1] == "NORTH")
                     {
                         dirInstructions.RemoveAt(i);
                         dirInstructions.RemoveAt(i - 1);
-                        i = dirInstructions.Count - 1;
+                        i = dirInstructions.Count;
                     }
                     break;
                 case "EAST":
-                    if (arr[i - 1] == "WEST")
+                    if (dirInstructions[i - 1] == "WEST")
                     {
                         dirInstructions.RemoveAt(i);
                         dirInstructions.RemoveAt(i - 1);
-                        i = dirInstructions.Count - 1;
+                        i = dirInstructions.Count;
                     }
                     break;
                 case "WEST":
-                    if (arr[i - 1] == "EAST")
+                    if (dirInstructions[i - 1] == "EAST")
                     {
                         dirInstructions.RemoveAt(i);
                         dirInstructions.RemoveAt(i - 1);
-                        i = dirInstructions.Count - 1;
+                        i = dirInstructions.Count;
                     }
                     break;
             }
