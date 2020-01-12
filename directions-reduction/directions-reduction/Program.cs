@@ -17,7 +17,7 @@ public class Program
         {
             string[] dirList = new string[randomizer.Next(1, 10)];
 
-            for (int j = 0; j <= dirList.Count()-1; j++)
+            for (int j = 0; j <= dirList.Count() - 1; j++)
             {
                 dirList[j] = dirArray[randomizer.Next(0, 4)];
                 Thread.Sleep(250);
@@ -32,7 +32,6 @@ public class Program
 
 public class DirReduction
 {
-
     public static string[] dirReduc(String[] arr)
     {
         List<string> dirInstructions = new List<string>();
@@ -40,40 +39,36 @@ public class DirReduction
 
         for (int i = dirInstructions.Count - 1; i > 0; i--)
         {
-            switch (dirInstructions[i])
+            if (dirInstructions[i] == "NORTH" && dirInstructions[i - 1] == "SOUTH")
             {
-                case "NORTH":
-                    if (dirInstructions[i - 1] == "SOUTH")
-                    {
-                        dirInstructions.RemoveAt(i);
-                        dirInstructions.RemoveAt(i - 1);
-                        i = dirInstructions.Count;
-                    }
-                    break;
-                case "SOUTH":
-                    if (dirInstructions[i - 1] == "NORTH")
-                    {
-                        dirInstructions.RemoveAt(i);
-                        dirInstructions.RemoveAt(i - 1);
-                        i = dirInstructions.Count;
-                    }
-                    break;
-                case "EAST":
-                    if (dirInstructions[i - 1] == "WEST")
-                    {
-                        dirInstructions.RemoveAt(i);
-                        dirInstructions.RemoveAt(i - 1);
-                        i = dirInstructions.Count;
-                    }
-                    break;
-                case "WEST":
-                    if (dirInstructions[i - 1] == "EAST")
-                    {
-                        dirInstructions.RemoveAt(i);
-                        dirInstructions.RemoveAt(i - 1);
-                        i = dirInstructions.Count;
-                    }
-                    break;
+                dirInstructions.RemoveAt(i);
+                dirInstructions.RemoveAt(i - 1);
+                i = dirInstructions.Count;
+                continue;
+            }
+
+            if (dirInstructions[i] == "SOUTH" && dirInstructions[i - 1] == "NORTH")
+            {
+                dirInstructions.RemoveAt(i);
+                dirInstructions.RemoveAt(i - 1);
+                i = dirInstructions.Count;
+                continue;
+            }
+
+            if (dirInstructions[i] == "EAST" && dirInstructions[i - 1] == "WEST")
+            {
+                dirInstructions.RemoveAt(i);
+                dirInstructions.RemoveAt(i - 1);
+                i = dirInstructions.Count;
+                continue;
+            }
+
+            if (dirInstructions[i] == "WEST" && dirInstructions[i - 1] == "EAST")
+            {
+                dirInstructions.RemoveAt(i);
+                dirInstructions.RemoveAt(i - 1);
+                i = dirInstructions.Count;
+                continue;
             }
         }
 
