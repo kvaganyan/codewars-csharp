@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\directions-reduction\directions-reduction.csproj" />
+    <ProjectReference Include="..\directions-reduction\Kata.csproj" />
   </ItemGroup>
 
 </Project>
