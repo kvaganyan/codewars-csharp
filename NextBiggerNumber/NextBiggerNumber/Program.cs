@@ -14,18 +14,19 @@ namespace NextBiggerNumber
     {
         public static long NextBiggerNumber(long n)
         {
-            //Convert to string
-            //Create return long and set to 0
-            //For loop length of string
-            //Pull last char one step to the right and check if bigger then original
-
             string originLongString = n.ToString();
-            long newLong = 0;
+            long returnLong = 0;
+            char digitOne = originLongString[0];
+            char digitTwo = originLongString[1];
+            char digitThree = originLongString[2];
+            char digitFour = originLongString[3];
 
-            while (newLong < n && newLong != -1)
+            for (int i=0; i<= originLongString.Length;i++)
             {
 
             }
+
+            return returnLong;
         }
     }
 }
