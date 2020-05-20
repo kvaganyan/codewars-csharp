@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NextBiggerNumber
 {
@@ -14,17 +16,33 @@ namespace NextBiggerNumber
     {
         public static long NextBiggerNumber(long n)
         {
-            string originLongString = n.ToString();
-            long returnLong = 0;
-            char digitOne = originLongString[0];
-            char digitTwo = originLongString[1];
-            char digitThree = originLongString[2];
-            char digitFour = originLongString[3];
+            long returnLong = n;
+            List<int> digits = new List<int>();
 
-            for (int i=0; i<= originLongString.Length;i++)
+            for (int i = 0; i < Math.Ceiling(Math.Log10(n)); i++)
             {
-
+                digits.Add(Convert.ToInt32(returnLong % 10));
+                returnLong = returnLong / 10;
             }
+
+            digits.Reverse();
+
+            int maxDigitValue = digits.;
+            int maxDigitPosition = digits.IndexOf(digits.Max());
+
+            while (returnlong <=n && passes < digits.Count)
+            {
+                digits.RemoveAt(maxDigitPosition);
+                digits.Insert(maxDigitPosition - 1, maxDigitValue);
+                maxDigitPosition--;
+            }
+
+            returnLong = long.Parse(string.Join("", digits));
+
+            if (returnLong <= n)
+            {
+                return -1;
+            }                      
 
             return returnLong;
         }
