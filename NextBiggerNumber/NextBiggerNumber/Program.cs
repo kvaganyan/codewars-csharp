@@ -27,22 +27,30 @@ namespace NextBiggerNumber
 
             digits.Reverse();
 
-            int maxDigitValue = digits.;
-            int maxDigitPosition = digits.IndexOf(digits.Max());
+            int passes = 0;
 
-            while (returnlong <=n && passes < digits.Count)
-            {
-                digits.RemoveAt(maxDigitPosition);
-                digits.Insert(maxDigitPosition - 1, maxDigitValue);
-                maxDigitPosition--;
-            }
+            //while (passes < digits.Count)
+            //{
+            //    int maxDigitPosition = digits.IndexOf(digits.Max());
 
-            returnLong = long.Parse(string.Join("", digits));
+            //}
 
-            if (returnLong <= n)
-            {
-                return -1;
-            }                      
+            //int maxDigitValue = digits.;
+            //int maxDigitPosition = digits.IndexOf(digits.Max());
+
+            //while (returnlong <= n && passes < digits.Count)
+            //{
+            //    digits.RemoveAt(maxDigitPosition);
+            //    digits.Insert(maxDigitPosition - 1, maxDigitValue);
+            //    maxDigitPosition--;
+            //}
+
+            //returnLong = long.Parse(string.Join("", digits));
+
+            //if (returnLong <= n)
+            //{
+            //    return -1;
+            //}
 
             return returnLong;
         }
